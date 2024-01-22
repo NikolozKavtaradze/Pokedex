@@ -4,6 +4,8 @@ document.addEventListener("DOMContentLoaded", () => {
     
     const selectedPokemon = JSON.parse(localStorage.getItem("selectedPokemon")) || []
 
+    shuffleArray(selectedPokemon)
+
     
     const colors = {
         normal: '#A8A77A',
@@ -86,3 +88,10 @@ document.addEventListener("DOMContentLoaded", () => {
 
     createPokemonCard();
 });
+
+function shuffleArray(array) {
+    for (let i = array.length - 1; i > 0; i--) {
+        const j = Math.floor(Math.random() * (i + 1));
+        [array[i], array[j]] = [array[j], array[i]];
+    }
+}
